@@ -1,1 +1,8 @@
 /* pages/read/read.wxss */
+@import "../../wxParse/wxParse.wxss";  
+.article-box {
+  padding: 20rpx;
+  height: 100%;
+  display: flex;
+  /* background-color: #888; */
+}

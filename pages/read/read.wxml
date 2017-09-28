@@ -1,6 +1,10 @@
 <!--pages/read/read.wxml-->
-<view class="container">
-  <import src="/wxParse/wxParse.wxml"/>
-
-  <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+<view class='container'>
+  <view class="article-box">
+    <scroll-view scroll-y="true" enable-back-to-top="true">
+    
+      <import src="/wxParse/wxParse.wxml"/>
+      <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+    </scroll-view>
+  </view>
 </view>

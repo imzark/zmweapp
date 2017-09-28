@@ -23,12 +23,16 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    let my_url = 'http://ollhjbg6f.bkt.clouddn.com/%E6%89%80%E4%BB%A5%EF%BC%8C%E8%BF%99%E5%BA%94%E8%AF%A5%E6%98%AF%E4%B8%80%E4%B8%AA%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2.md';
+    let my_url = 'http://ollhjbg6f.bkt.clouddn.com/%E6%89%80%E4%BB%A5%EF%BC%8C%E8%BF%99%E5%BA%94%E8%AF%A5%E6%98%AF%E4%B8%80%E4%B8%AA%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2.html';
     wx.request({
       url: my_url,
       success: function (res) {
         var article = res.data;
-        WxParse.wxParse('article', 'md', article, that, 5);
+        WxParse.wxParse('article', 'html', article, that, 10);
+        that.setData({
+          nodes: WxParse.wxParse('article', 'html', article, that, 10),
+        });
+
       }
     })
 
