@@ -1,0 +1,17 @@
+<template name="page-template">
+  <view class="page-card" bindtap="navigateToRead">
+    <view>
+      <text class="page-title">{{item.p_title}}</text>
+    </view>
+    <image class="page-image" src="{{item.p_imgUrl}}" mode="aspectFill"></image>
+
+    <view>
+      <text class="page-subTitle">{{item.p_subTitle}}</text>
+    </view>
+    <view class="center"><view class="line"></view></view>
+    <view>
+      <text class="page-date">{{item.p_date}}</text>
+
+    </view>
+  </view>
+</template>

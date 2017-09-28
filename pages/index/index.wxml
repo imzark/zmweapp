@@ -1,13 +1,21 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+
+<view class="container" style='background-color: #FAFAFA;' disable-scroll="true">
+  <view style='display: flex;align-items: center;'>
+  <image class='logo' src='/images/logo_weapp.png' mode='aspectFit'></image><text class="navi-title">今天怎么购</text> 
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+   <view class="center"><view class="line" style='margin-left:30rpx;margin-right:30rpx;marign-bottom:10rpx;'></view></view>
+  <swiper class='page-swiper' current="{{current_page}}" duration="250"> 
+    <block wx:for="{{title_pages}}" wx:key="{{current_page}}" wx:for-index="idx">
+      <swiper-item class="page-swiper-item">
+        <import src="template/page_template.wxml"/>
+        <template is="page-template" data="{{item}}"/>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="btn-view">
+    <button size="default" disabled="{{disabled}}" bindtap="">搜索优惠商品</button>
   </view>
 </view>
+
